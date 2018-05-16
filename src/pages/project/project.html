@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ProjectPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{project_detail?.title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addMilestone()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+        {{project_detail?.description}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list inset>
+    <ion-list-header align="center">
+      Milestones
+    </ion-list-header>
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+      <button *ngFor="let milestone of milestones" ion-item>
+        {{milestone?.title}}
+        <p>number of days to complete {{milestone?.days}}</p>
+      </button>
+      
+    </ion-item-group>
+
+  </ion-list>
+
+  <!-- <ion-list inset>
+    <ion-list-header align="center">
+      people working on project
+    </ion-list-header>
+    <button ion-item>
+      list of ppl
+    </button>
+
+  </ion-list> -->
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-fab bottom right>
+    <button ion-fab (click)="navChats()">
+      <ion-icon name="md-chatboxes"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-footer>
